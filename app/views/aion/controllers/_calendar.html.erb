@@ -1,0 +1,71 @@
+<div class="aion-controllers-calendar">
+  <header>
+    <div class="aion-select-container">
+      <div>
+        <%= ion_icon("chevron-left") %>
+      </div>
+
+      <div class="aion-date-display-container">
+        <div>
+          <%= I18n.t("date.abbr_month_names")[renderer.target_date.month] %>
+
+          <select>
+            <% renderer.months_for_selection.each_with_index do |month_name, index| %>
+              <option value="<%= index + 1 %>">
+                <%= month_name %>
+              </option>
+            <% end %>
+          </select>
+        </div>
+
+        <div>
+          <%= renderer.target_date.year %>
+
+          <select>
+            <% renderer.years_for_selection.each do |year| %>
+              <option value="<%= year %>" <%= "selected" if year == renderer.target_date.year %>>
+                <%= year %>
+              </option>
+            <% end %>
+          </select>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button">Action</button>
+    <button class="dropdown-item" type="button">Another action</button>
+    <button class="dropdown-item" type="button">Something else here</button>
+  </div>
+</div>
+
+        </div>
+      </div>
+
+      <div>
+        <%= ion_icon("chevron-right") %>
+      </div>
+    </div>
+
+    <div class="aion-header-day-names">
+      <% renderer.week_days.each do |date| %>
+        <div class="aion-day-name">
+          <%= I18n.t("date.abbr_day_names")[date.wday] %>
+        </div>
+      <% end %>
+    </div>
+  </header>
+
+  <section class="aion-calendar">
+    <% renderer.weeks.each do |week_days| %>
+      <div class="aion-calendar-row">
+        <% week_days.each do |date| %>
+          <div class="<%= renderer.classes_for(date) %>">
+            <%= date.day %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
+</div>

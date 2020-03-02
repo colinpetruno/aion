@@ -1,0 +1,80 @@
+.aion-controllers-calendar {
+  .aion-select-container {
+    display: flex;
+
+    > div:first-child {
+      justify-content: start;
+      width: 30%;
+    }
+
+    > div {
+      display: flex;
+      justify-content: center;
+      width: 40%
+    }
+
+    > div:last-child {
+      justify-content: flex-end;
+      width: 30%;
+    }
+  }
+
+  .aion-calendar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aion-header-day-names {
+    display: flex;
+    flex-grow: 1;
+    flex-basis:0;
+
+    .aion-day-name {
+      display: flex;
+      flex-grow: 1;
+      flex-basis: 0;
+      justify-content: center;
+    }
+  }
+
+  .aion-calendar {
+    border: 1px solid $gray-dark;
+  }
+
+  .aion-calendar-row {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0;
+
+    &:first-child {
+      .aion-date {
+        border-top: none;
+      }
+    }
+
+    &:last-child {
+      .aion-date {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .aion-date {
+    border: 1px solid $gray-dark;
+    border-right: none;
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    flex-grow: 1;
+    flex-basis: 0;
+
+    &:first-child {
+      border-left: none;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}

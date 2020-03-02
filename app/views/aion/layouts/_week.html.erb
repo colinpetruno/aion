@@ -1,0 +1,36 @@
+<div class="aion-layouts-week calendar">
+  <header>
+    <div class="time-label-placeholder"></div>
+
+    <% renderer.dates.each do |date| %>
+      <div class="aion-date-label">
+        <div class="aion-day-name">
+          <%= I18n.t("date.day_names")[date.wday] %>
+        </div>
+        <div class="aion-date">
+          <%= I18n.l(date, format: :short) %>
+        </div>
+      </div>
+    <% end %>
+  </header>
+
+  <section class="calendar-window">
+    <div class="overflow">
+      <article>
+        <div class="time-label-column">
+          <% renderer.time_range_for_day.step(30.minutes) do |datetime| %>
+            <div class="time-label">
+              <%= I18n.l(
+                DateTime.strptime("#{datetime}", "%s"), format: :padded_time
+              ) %>
+            </div>
+          <% end %>
+        </div>
+
+        <% renderer.dates.each do |date| %>
+          <div class="event-column"></div>
+        <% end %>
+      </article>
+    </div>
+  </section>
+</div>
